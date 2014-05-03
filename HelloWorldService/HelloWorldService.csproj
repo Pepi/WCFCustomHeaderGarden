@@ -59,10 +59,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GoodbyeWorldService.svc" />
     <Content Include="HelloWorldService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GoodbyeWorldService.svc.cs">
+      <DependentUpon>GoodbyeWorldService.svc</DependentUpon>
+    </Compile>
     <Compile Include="HelloWorldService.svc.cs">
       <DependentUpon>HelloWorldService.svc</DependentUpon>
     </Compile>

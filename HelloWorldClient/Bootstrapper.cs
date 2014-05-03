@@ -29,6 +29,11 @@ namespace HelloWorldClient
           new InjectionFactory(
               (c) => new ChannelFactory<IHelloWorldService>("BasicHttpBinding_IHelloWorldService").CreateChannel()));
 
+      container.RegisterType<IGoodbyeWorldService>(
+          new ContainerControlledLifetimeManager(),
+          new InjectionFactory(
+              (c) => new ChannelFactory<IGoodbyeWorldService>("BasicHttpBinding_IGoodbyeWorldService").CreateChannel()));
+
       // e.g. container.RegisterType<ITestService, TestService>();    
       RegisterTypes(container);
 

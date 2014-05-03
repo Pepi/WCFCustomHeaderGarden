@@ -13,20 +13,25 @@ namespace HelloWorldClient.Controllers
     public class HelloWorldController : Controller
     {
         private IHelloWorldService _HelloWorldService;
+        private IGoodbyeWorldService _GoodbyeWorldService;
 
-        public HelloWorldController(IHelloWorldService helloWorldService)
+        public HelloWorldController(IHelloWorldService helloWorldService, IGoodbyeWorldService goodbyeWorldService)
         {
             _HelloWorldService = helloWorldService;
+            _GoodbyeWorldService = goodbyeWorldService;
+            ClaimsHeaderContext.HeaderInformation.Token = Guid.NewGuid().ToString();
+            ClaimsHeaderContext.HeaderInformation.AccountId = 23;
+            ClaimsHeaderContext.HeaderInformation.RequestId = 135;
         }
         //
         // GET: /HelloWorld/
         public string Index()
         {
-            // based off the great research at http://trycatch.me/adding-custom-message-headers-to-a-wcf-service-using-inspectors-behaviors/
-            ClaimsHeaderContext.HeaderInformation.Token = DateTime.Now.ToLongTimeString();
+            var person = new Person() { FirstName = "John", LastName = "Smith", Age = 35 };
+            var helloResponse = _HelloWorldService.SayHello(person);
+            var goodbyeResponse = _GoodbyeWorldService.SayFarewell(person);
 
-            var response = _HelloWorldService.SayHello(new Person() { FirstName = "John", LastName = "Smith", Age = 35 });
-            return response;
+            return string.Format("{0}<br>{1}", helloResponse, goodbyeResponse);
         }
 	}
 }

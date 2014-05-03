@@ -10,10 +10,10 @@ using System.Text;
 
 namespace HelloWorldService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "HelloWorldService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select HelloWorldService.svc or HelloWorldService.svc.cs at the Solution Explorer and start debugging.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "GoodbyeWorldService" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select GoodbyeWorldService.svc or GoodbyeWorldService.svc.cs at the Solution Explorer and start debugging.
     [ClaimsInspectorBehavior]
-    public class HelloWorldService : IHelloWorldService
+    public class GoodbyeWorldService : IGoodbyeWorldService
     {
         public ClaimsHeader HeaderInformation
         {
@@ -27,9 +27,9 @@ namespace HelloWorldService
             }
         }
 
-        public string SayHello(Person person)
+        public string SayFarewell(Person person)
         {
-            return string.Format("Nice to meet you<br>{0}<br>{1}<br>{2}<br>{3}<br>{4}", person.FirstName, person.LastName, HeaderInformation.Token, HeaderInformation.AccountId, HeaderInformation.RequestId);
+            return string.Format("Farewell!<br>{0}<br>{1}<br>{2}<br>{3}<br>{4}", person.FirstName, person.LastName, HeaderInformation.Token, HeaderInformation.AccountId, HeaderInformation.RequestId);
         }
     }
 }

@@ -48,6 +48,7 @@
     <Compile Include="Extensions\ClaimsInspectorBehavior.cs" />
     <Compile Include="Extensions\ClaimsInspectorBehaviorExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContracts\IGoodbyeWorldService.cs" />
     <Compile Include="ServiceContracts\IHelloWorldService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

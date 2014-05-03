@@ -12,5 +12,9 @@ namespace HelloWorldCommon.DataContracts
     {
         [DataMember]
         public string Token { get; set; }
+        [DataMember]
+        public int AccountId { get; set; }
+        [DataMember]
+        public int RequestId { get; set; }
     }
 }

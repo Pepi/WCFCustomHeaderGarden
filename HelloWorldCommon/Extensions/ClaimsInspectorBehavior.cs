@@ -44,7 +44,9 @@ namespace HelloWorldCommon.Extensions
             //Instantiate new HeaderObject with values from ClientContext;
             var dataToSend = new ClaimsHeader
             {
-                Token = ClaimsHeaderContext.HeaderInformation.Token
+                Token = ClaimsHeaderContext.HeaderInformation.Token,
+                AccountId = ClaimsHeaderContext.HeaderInformation.AccountId,
+                RequestId = ClaimsHeaderContext.HeaderInformation.RequestId
             };
 
             var typedHeader = new MessageHeader<ClaimsHeader>(dataToSend);
